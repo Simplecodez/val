@@ -56,10 +56,14 @@
 
     .message {
       display: none;
-      font-size: 2em;
       margin-top: 20px;
-      color: #fff;
-      text-shadow: 1px 1px 5px #ff5c5c;
+    }
+
+    .message img {
+      width: 200px;
+      max-width: 80vw;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 92, 92, 0.7);
       animation: popIn 1s forwards;
     }
 
@@ -89,7 +93,7 @@
       h1 { font-size: 1.8em; }
       .heart { font-size: 3em; }
       button { font-size: 1.2em; padding: 12px 20px; }
-      .message { font-size: 1.5em; }
+      .message img { width: 150px; }
     }
   </style>
 </head>
@@ -97,7 +101,10 @@
   <h1>Ify love, will you be my Valentine? 💖</h1>
   <div class="heart">❤️</div>
   <button onclick="showMessage()">Yes, I’ll be your Valentine! 💌</button>
-  <div class="message" id="message">Yay! I’m so happy 😍</div>
+
+  <div class="message" id="message">
+    <img src="https://media.giphy.com/media/l2Je7xFz8OZ6R1fEs/giphy.gif" alt="Blowing kisses">
+  </div>
 
   <script>
     // Create a single love flake
@@ -114,16 +121,15 @@
       
       document.body.appendChild(flake);
       
-      // Remove after animation ends
       setTimeout(() => flake.remove(), 5000);
     }
 
     function showMessage() {
       // Make a "snowstorm" of flakes for 3 seconds
-      let flakes = setInterval(createFlake, 50); // every 50ms
-      setTimeout(() => clearInterval(flakes), 3000); // stop after 3 seconds
+      let flakes = setInterval(createFlake, 50);
+      setTimeout(() => clearInterval(flakes), 3000);
 
-      // Show the message after 3 seconds
+      // Show the GIF after 3 seconds
       setTimeout(() => {
         const msg = document.getElementById('message');
         msg.style.display = 'block';
