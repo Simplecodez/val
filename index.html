@@ -74,7 +74,9 @@
       position: fixed;
       top: -50px;
       font-size: 1.5em;
-      animation: fall linear forwards;
+      animation-name: fall;
+      animation-timing-function: linear;
+      animation-fill-mode: forwards;
     }
 
     @keyframes fall {
@@ -98,30 +100,34 @@
   <div class="message" id="message">Yay! I’m so happy 😍</div>
 
   <script>
-    // Function to create falling heart flakes
+    // Create a single love flake
     function createFlake() {
       const flake = document.createElement('div');
       flake.className = 'flake';
-      const emojis = ['💖', '❤️', '💕', '💘'];
+      const emojis = ['💖', '❤️', '💕', '💘', '💝'];
       flake.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      
       flake.style.left = Math.random() * 100 + 'vw';
-      flake.style.fontSize = (Math.random() * 24 + 16) + 'px';
+      flake.style.fontSize = (Math.random() * 36 + 16) + 'px';
       flake.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      flake.style.transform = `rotate(${Math.random() * 360}deg)`;
+      
       document.body.appendChild(flake);
-      setTimeout(() => flake.remove(), 4000);
+      
+      // Remove after animation ends
+      setTimeout(() => flake.remove(), 5000);
     }
 
-    // Function when Yes is clicked
     function showMessage() {
-      // Create love flakes for 2 seconds
-      let flakeInterval = setInterval(createFlake, 150);
-      setTimeout(() => clearInterval(flakeInterval), 2000);
+      // Make a "snowstorm" of flakes for 3 seconds
+      let flakes = setInterval(createFlake, 50); // every 50ms
+      setTimeout(() => clearInterval(flakes), 3000); // stop after 3 seconds
 
-      // Show the message after 2 seconds
+      // Show the message after 3 seconds
       setTimeout(() => {
         const msg = document.getElementById('message');
         msg.style.display = 'block';
-      }, 2000);
+      }, 3000);
     }
   </script>
 </body>
