@@ -119,15 +119,13 @@
     }
 
     function showMessage() {
-      // Make a "snowstorm" of flakes for 3 seconds
+      // Show the message immediately
+      const msg = document.getElementById('message');
+      msg.style.display = 'block';
+
+      // Start the love flakes "snowstorm"
       let flakes = setInterval(createFlake, 50); // every 50ms
       setTimeout(() => clearInterval(flakes), 3000); // stop after 3 seconds
-
-      // Show the message after 3 seconds
-      setTimeout(() => {
-        const msg = document.getElementById('message');
-        msg.style.display = 'block';
-      }, 3000);
     }
   </script>
 </body>
