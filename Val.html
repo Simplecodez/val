@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Be My Valentine?</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      text-shadow: 2px 2px 8px #ff5c5c;
+      margin-bottom: 20px;
+    }
+
+    .heart {
+      font-size: 5em;
+      color: red;
+      animation: beat 1s infinite;
+      margin-bottom: 30px;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    button {
+      background-color: #ff4b5c;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    button:hover {
+      transform: scale(1.2);
+      background-color: #ff1e3c;
+    }
+
+    .message {
+      display: none;
+      font-size: 2em;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 5px #ff5c5c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey, [Her Name] 💖</h1>
+  <div class="heart">❤️</div>
+  <button onclick="showMessage()">Will you be my Valentine?</button>
+  <div class="message" id="message">Yay! I’m so happy 😍</div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('message').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
+
